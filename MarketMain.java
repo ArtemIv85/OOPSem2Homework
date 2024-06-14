@@ -17,13 +17,14 @@ public class MarketMain {
         market.takeInQueue(hum1);
         market.takeInQueue(hum2);
 
+        market.update();// тут происходит приемка и выдача заказа
 
-
-        market.giveOrders();//сделал заказ
-        market.takeOrders();//получил заказ
         market.releaseFromQueue();//вышел из очереди
         market.releaseFromMarket(hum1);
+
         market.update();
+
+        System.out.println("Покупатели в магазине:");
         System.out.println(market.toString());
     }
 }
