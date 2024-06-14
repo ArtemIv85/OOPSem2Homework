@@ -15,6 +15,7 @@ public class Market implements MarketBehaviour, QueueBehaviour{
     public void releaseFromMarket(Actor actor) { // покинул магазин
         for (int i=0; i<actors.size();i++) {
             if (actors.get(i).isMakeOrder){
+                System.out.println("Магазин покинул: "+actors.get(i).name);
                 actors.remove(i);
             }
         }
@@ -22,6 +23,9 @@ public class Market implements MarketBehaviour, QueueBehaviour{
 
     @Override
     public void update() {  // обновление магазина
+
+        giveOrders();
+        takeOrders();
 
     }
 
@@ -52,7 +56,6 @@ public class Market implements MarketBehaviour, QueueBehaviour{
     public void releaseFromQueue() { //покинул очередь
         System.out.println("Покинул очередь:"+queue.peek());
         queue.remove();
-        System.out.println(queue.element().toString());
 
     }
 
